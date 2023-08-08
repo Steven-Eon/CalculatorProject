@@ -32,7 +32,7 @@
 }
 
 .calculatorDisplay p {
-    overflow: hidden;
+    overflow: auto;
     padding-right: 5%
 }
 
