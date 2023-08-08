@@ -2,8 +2,6 @@ const numToCalc = [];
 
 function initialize() {
     const buttonRowArray = (document.querySelectorAll('.buttonRow > button'));
-    
-    
     buttonRowArray.forEach((element) =>
     {
         element.addEventListener('click', (event) => {
@@ -37,6 +35,7 @@ function buttonInterpreter(buttonPressed) {
             numToCalc.push(parseFloat(display.textContent));
             display.textContent = "";
             console.table(numToCalc);
+            display.textContent = eval(numToCalc);
             numToCalc.splice(0, numToCalc.length);
         }
     }
@@ -52,5 +51,31 @@ function buttonInterpreter(buttonPressed) {
     }
 }
 
+function eval(expressionArray)
+{
+    let finalValue = expressionArray[0];
+    console.log(expressionArray.length);
+
+    for (let i = 1; i < expressionArray.length; i = i + 2)
+    {
+        console.log(expressionArray[i]);
+        console.log(expressionArray[i + 1]);
+        switch (expressionArray[i]) {
+            case '÷':
+                finalValue = finalValue / expressionArray[i + 1];
+                break;
+            case '+':
+                finalValue = finalValue + expressionArray[i + 1];
+                break;
+            case '-':
+                finalValue = finalValue - expressionArray[i + 1];
+                break;
+            case 'x':
+                finalValue = finalValue * expressionArray[i + 1];
+                break;
+        };
+    }
+    return finalValue;
+}
 
 initialize();
