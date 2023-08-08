@@ -39,7 +39,7 @@
 .buttonRow {
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
     height: 12%;
 }
 
@@ -58,5 +58,11 @@
 
 .buttonRow > button:active {
     background-color: gray;
+}
+
+.buttonRow .specialButton {
+    height: 50%;
+    width: 30%;
+    border-radius: 5px;
 }
 

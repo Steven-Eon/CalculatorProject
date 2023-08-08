@@ -17,14 +17,20 @@ function buttonInterpreter(buttonPressed) {
         console.log(parseInt(buttonPressed.textContent));
         display.textContent += parseInt(buttonPressed.textContent);
     }
+    else if (buttonPressed.textContent === 'Clear')
+    {
+        numToCalc.splice(0, numToCalc.length);
+        display.textContent = "";
+    }
+    else if (buttonPressed.textContent === 'Backspace' && buttonPressed.textContent != '')
+    {
+        display.textContent = display.textContent.slice(0, -1);
+    }
     else if (buttonPressed.textContent === '.')
     {
         if (!(display.textContent).includes("."))
         {
-            if (display.textContent.length === 0)
-            {
-                display.textContent += 0;
-            }
+            display.textContent.length === 0 ? display.textContent += 0 : display.textContent;
             display.textContent += '.';
         }
     }
